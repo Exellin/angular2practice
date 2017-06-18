@@ -1,7 +1,7 @@
-<h2>{{ mediaitem.name }}</h2>
-<div>Watched on {{ mediaitem.watchedOn }}</div>
-<div>{{ mediaitem.category }}</div>
-<div>{{ mediaitem.year }}</div>
+<h2>{{ media_item.name }}</h2>
+<div>Watched on {{ media_item.watchedOn }}</div>
+<div>{{ media_item.category }}</div>
+<div>{{ media_item.year }}</div>
 <div class="tools">
   <svg class="favorite" viewBox="0 0 24 24">
     <path d="M12 9.229c.234-1.12 1.547-6.229 5.382-6.229 2.22 0 4.618 1.551 4.618 5.003 0
@@ -10,7 +10,7 @@
     12-14.997 0-7.962-9.648-9.028-12-3.737-2.338-5.262-12-4.27-12 3.737z"
     />
   </svg>
-  <a class="delete">
+  <a class="delete" (click)="onDelete()">
     remove
   </a>
   <a class="details">

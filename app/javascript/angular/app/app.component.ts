@@ -8,6 +8,10 @@ import './app.components.scss'
 })
 
 export class AppComponent {
+  onMediaItemDelete(mediaItem) {
+    console.log("onMediaItemDelete called")
+  }
+  
   firstMediaItem = {
     id: 1,
     name: "Firebug", 
