@@ -1,10 +1,15 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import templateString from './media-item.component.html'
 import './media-item.component.scss'
 
 @Component({
   selector: 'media-item',
-  template: templateString
+  template: templateString,
 })
 
-export class MediaItemComponent {}
+export class MediaItemComponent {
+  @Input() mediaitem;
+}
+
+
+  
