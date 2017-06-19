@@ -1,4 +1,5 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import templateString from './media-item.component.html'
 import './media-item.component.scss'
 
@@ -8,7 +9,7 @@ import './media-item.component.scss'
 })
 
 export class MediaItemComponent {
-  @Input() media_item;
+  @Input() mediaItem;
   @Output() delete = new EventEmitter();
   
   onDelete() {

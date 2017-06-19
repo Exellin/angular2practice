@@ -1,7 +1,7 @@
-<h2>{{ media_item.name }}</h2>
-<div ng-if="media_item.watchedOn">Watched on {{ media_item.watchedOn }}</div>
-<div>{{ media_item.category }}</div>
-<div>{{ media_item.year }}</div>
+<h2>{{ mediaItem.name }}</h2>
+<div *ngIf="mediaItem.watchedOn">Watched on {{ mediaItem.watchedOn }}</div>
+<div>{{ mediaItem.category }}</div>
+<div>{{ mediaItem.year }}</div>
 <div class="tools">
   <svg class="favorite" viewBox="0 0 24 24">
     <path d="M12 9.229c.234-1.12 1.547-6.229 5.382-6.229 2.22 0 4.618 1.551 4.618 5.003 0

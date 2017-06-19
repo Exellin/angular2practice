@@ -3,7 +3,7 @@ module.exports = {
   use: [ {
     loader: 'html-loader?exportAsEs6Default',
     options: {
-      minimize: true
+      minimize: false
     }
   }]
 }
