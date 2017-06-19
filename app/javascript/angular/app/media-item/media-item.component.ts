@@ -1,6 +1,6 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core'
-import templateString from './media-item.component.html'
-import './media-item.component.scss'
+import { Component, Input, Output, EventEmitter } from '@angular/core';
+import templateString from './media-item.component.html';
+import './media-item.component.scss';
 
 @Component({
   selector: 'media-item',

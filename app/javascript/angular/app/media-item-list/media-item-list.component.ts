@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import templateString from './media-item-list.component.html'
-import './media-item-list.component.scss'
+import templateString from './media-item-list.component.html';
+import './media-item-list.component.scss';
 
 @Component({
   selector: 'media-item-list',
