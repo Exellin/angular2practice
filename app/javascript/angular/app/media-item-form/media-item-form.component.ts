@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import templateString from './media-item-form.component.html';
 import './media-item-form.component.scss';
 
@@ -14,10 +14,27 @@ export class MediaItemFormComponent {
   ngOnInit() {
     this.form = new FormGroup({
       medium: new FormControl('Movies'),
-      name: new FormControl(),
+      name: new FormControl('', Validators.compose([
+        Validators.required,
+        Validators.pattern('[\\w\\-\\s\\/]+')
+      ])),
       category: new FormControl(),
-      year: new FormControl()
+      year: new FormControl('', this.yearValidator)
     });
+  }
+  
+  yearValidator(control) {
+    if (control.value.trim().length === 0) {
+      return null
+    }
+    let year = parseInt(control.value);
+    let minYear = 1900;
+    let maxYear = 2100;
+    if (year >= minYear && year <= maxYear) {
+      return null
+    } else {
+      return { 'year': true }
+    }
   }
   
   onSubmit(mediaItem) {
