@@ -14,22 +14,6 @@ media-item {
     flex: 1;
   }
   
-  medium-movies {
-    border-color: #53ace4;
-  }
-  
-  medium-movies > h2 {
-    color: #53ace4;
-  }
-  
-  medium-series {
-    border-color: #45bf94;
-  }
-  
-  medium-series > h2 {
-    color: #45bf94;
-  }
-  
   .tools {
     margin-top: 8px;
     display: flex;
@@ -74,5 +58,19 @@ media-item {
     color: #ffffff;
     text-decoration: none;
     cursor: pointer;
+  }
+}
+
+.medium-movies {
+  border-color: #53ace4;
+  h2 {
+    color: #53ace4;
+  }
+}
+
+.medium-series {
+  border-color: #45bf94;
+  h2 {
+    color: #45bf94;
   }
 }
