@@ -8,7 +8,6 @@ import './media-item-list.component.scss'
 })
 
 export class MediaItemListComponent {
-
   onMediaItemDelete(mediaItem) { }
 
   mediaItems = [

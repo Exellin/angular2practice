@@ -19,4 +19,5 @@ import { FavoriteDirective } from './media-item/favorite.directive'
   providers: [],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }
