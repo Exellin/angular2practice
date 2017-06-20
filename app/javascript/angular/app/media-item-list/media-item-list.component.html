@@ -1,8 +1,3 @@
-<nav>
-  <button (click)="getMediaItems('')">All</button>
-  <button (click)="getMediaItems('Movies')">Movies</button>
-  <button (click)="getMediaItems('Series')">Series</button>
-</nav>
 <header 
     [ngClass]="{'medium-movies':medium === 'Movies', 'medium-series':medium === 'Series'}">
     <h2>{{medium}}</h2>
@@ -15,3 +10,8 @@
     [mediaItem]="mediaItem"
     (delete)="onMediaItemDelete($event)"></media-item>
 </section>
+<footer>
+  <a routerLink = "/add">
+    Add new item
+  </a>
+</footer>

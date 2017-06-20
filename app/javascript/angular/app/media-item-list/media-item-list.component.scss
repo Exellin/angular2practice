@@ -25,7 +25,6 @@ media-item-list {
   }
   
   section {
-    flex: 1;
     display: flex;
     flex-flow: row wrap;
     align-content: flex-start;
@@ -35,11 +34,8 @@ media-item-list {
     margin: 10px;
   }
   
-  footer {
-    text-align: right;
-  }
-  
-  footer .icon {
+  footer a {
+    color: white;
     width: 64px;
     height: 64px;
     margin: 15px;

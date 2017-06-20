@@ -1,8 +1,18 @@
+<nav>
+  <a routerLink="/">
+    All
+  </a>
+  <a routerLink="/Movies">
+    Movies
+  </a>
+  <a routerLink="/Series">
+    Series
+  </a>
+</nav>
 <section>
   <header>
     <h1>Media Watch List</h1>
     <p class="description">Keeping track of the media I want to watch.</p>
   </header>
-  <media-item-form></media-item-form>
-  <media-item-list></media-item-list>
+  <router-outlet></router-outlet>
 </section>
