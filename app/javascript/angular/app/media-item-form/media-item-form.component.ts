@@ -3,6 +3,8 @@ import { Validators, FormBuilder } from '@angular/forms';
 import templateString from './media-item-form.component.html';
 import './media-item-form.component.scss';
 
+import { MediaItemService } from '../media-item/media-item.service'
+
 @Component({
   selector: 'media-item-form',
   template: templateString
@@ -11,7 +13,9 @@ import './media-item-form.component.scss';
 export class MediaItemFormComponent {
   form;
   
-  constructor(private formBuilder: FormBuilder) {}
+  constructor(
+    private formBuilder: FormBuilder,
+    private mediaItemService: MediaItemService) {}
   
   ngOnInit() {
     this.form = this.formBuilder.group({
@@ -45,6 +49,6 @@ export class MediaItemFormComponent {
   }
   
   onSubmit(mediaItem) {
-    console.log(mediaItem);
+    this.mediaItemService.add(mediaItem);
   }
 }
