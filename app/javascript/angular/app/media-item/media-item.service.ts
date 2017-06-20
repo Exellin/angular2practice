@@ -4,7 +4,6 @@ import 'rxjs/add/operator/map';
 
 @Injectable()
 export class MediaItemService {
-  mediaItems;
   constructor(private http: Http) {}
   
   get(medium) {
@@ -22,10 +21,8 @@ export class MediaItemService {
   }
   
   delete(mediaItem) {
-    let index = this.mediaItems.indexOf(mediaItem);
-    if (index >= 0) {
-      this.mediaItems.splice(index, 1);
-    }
+    return this.http.delete(`media_items/${mediaItem.id}`)
+      .map(response => {});
   }
 }
 

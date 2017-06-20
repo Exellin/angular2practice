@@ -23,6 +23,11 @@ class MediaItemsController < ApplicationController
     end
   end
   
+  def destroy
+    media_item = MediaItem.find(params[:id])
+    media_item.destroy
+  end
+  
   private
   
   def media_item_params
