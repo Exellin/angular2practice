@@ -1,5 +1,12 @@
-<header>
-  <div>{{ mediaItems | categoryList }}</div>
+<nav>
+  <button (click)="getMediaItems('')">All</button>
+  <button (click)="getMediaItems('Movies')">Movies</button>
+  <button (click)="getMediaItems('Series')">Series</button>
+</nav>
+<header 
+    [ngClass]="{'medium-movies':medium === 'Movies', 'medium-series':medium === 'Series'}">
+    <h2>{{medium}}</h2>
+    <div>{{ mediaItems | categoryList }}</div>
 </header>
 <section>
   <media-item 
