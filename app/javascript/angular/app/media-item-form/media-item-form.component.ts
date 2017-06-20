@@ -20,8 +20,8 @@ export class MediaItemFormComponent {
         Validators.required,
         Validators.pattern('[\\w\\-\\s\\/]+')
       ])),
-      category: new FormControl(),
-      year: new FormControl('', this.yearValidator)
+      category: this.formBuilder.control(''),
+      year: this.formBuilder.control('', this.yearValidator)
     });
   }
   
@@ -35,9 +35,11 @@ export class MediaItemFormComponent {
     if (year >= minYear && year <= maxYear) {
       return null
     } else {
-      return { 'year': {
-        min: minYear,
-        max: maxYear
+      return { 
+        'year': {
+          min: minYear,
+          max: maxYear
+        }
       }
     }
   }
