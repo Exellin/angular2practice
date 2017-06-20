@@ -17,7 +17,8 @@ export class MediaItemService {
   }
   
   add(mediaItem) {
-    this.mediaItems.push(mediaItem);
+    return this.http.post('media_items', mediaItem)
+      .map(response => {});
   }
   
   delete(mediaItem) {
