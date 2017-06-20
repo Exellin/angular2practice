@@ -1,7 +1,38 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+MediaItem.create!([
+  {
+    name: "Firebug",
+    medium: "Series",
+    category: "Science Fiction",
+    year: 2010,
+    watchedOn: 1294166565384,
+    isFavorite: false
+  },
+  {
+    name: "The Small Tall",
+    medium: "Movies",
+    category: "Comedy",
+    year: 2015,
+    isFavorite: true
+  }, 
+  {
+    name: "The Redemption",
+    medium: "Movies",
+    category: "Action",
+    year: 2016,
+    isFavorite: false
+  }, 
+  {
+    name: "Hoopers",
+    medium: "Series",
+    category: "Drama",
+    isFavorite: true
+  }, 
+  {
+    name: "Happy Joe: Cheery Road",
+    medium: "Movies",
+    category: "Action",
+    year: 2015,
+    watchedOn: 1457166565384,
+    isFavorite: false
+  }
+])
