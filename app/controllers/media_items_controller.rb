@@ -6,11 +6,7 @@ class MediaItemsController < ApplicationController
     else
       media_items = MediaItem.all
     end
-    if media_items
-      render json: media_items, status: 200
-    else
-      render json: {errors: media_items.errors.collect {|error| [error[0], error[1]]}}, status: :unprocessable_entity
-    end
+    render json: media_items
   end
   
   def create

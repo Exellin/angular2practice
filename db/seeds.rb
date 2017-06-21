@@ -25,6 +25,7 @@ MediaItem.create!([
     name: "Hoopers",
     medium: "Series",
     category: "Drama",
+    year: 2005,
     isFavorite: true
   }, 
   {
