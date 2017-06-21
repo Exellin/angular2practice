@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Http, URLSearchParams } from '@angular/http';
 import 'rxjs/add/operator/map';
+import {Observable} from 'rxjs/Rx';
 
 @Injectable()
 export class MediaItemService {
@@ -11,7 +12,9 @@ export class MediaItemService {
     searchParams.append('medium', medium);
     return this.http.get('media_items.json', { search: searchParams })
       .map(response => {
-        return response.json();
+        return response.json()
+      }).catch((error: any) => {
+        return Observable.throw(new Error(error.status));
       });
   }
   

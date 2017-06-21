@@ -12,11 +12,8 @@
     <li>
       <label for="name">Name</label>
       <input type="text" name="name" id="name" formControlName="name">
-      <div *ngIf="form.controls.name.errors?.pattern" class="error">
-        Name has invalid characters
-      </div>
-      <div *ngIf="form.controls.name.errors?.required" class="error">
-        Name can't be blank
+      <div *ngIf="form.controls.name.errors?.remote" class="error">
+        {{ form.controls.name.errors.remote }}
       </div>
     </li>
     <li>
@@ -33,8 +30,8 @@
     <li>
       <label for="year">Year</label>
       <input type="text" name="year" id="year" maxlength="4" formControlName="year">
-      <div *ngIf="form.controls.year.errors?.year" class="error">
-        Must be between {{ form.controls.year.errors?.year.min }} and {{ form.controls.year.errors?.year.max }}
+      <div *ngIf="form.controls.year.errors?.remote" class="error">
+        {{ form.controls.year.errors.remote }}
       </div>
     </li>
   </ul>

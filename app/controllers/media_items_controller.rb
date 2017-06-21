@@ -9,7 +9,7 @@ class MediaItemsController < ApplicationController
     if media_items
       render json: media_items, status: 200
     else
-      render json: {errors: media_items.errors.full_messages}, status: :unprocessable_entity
+      render json: {errors: media_items.errors.collect {|error| [error[0], error[1]]}}, status: :unprocessable_entity
     end
   end
   
@@ -19,7 +19,12 @@ class MediaItemsController < ApplicationController
     if media_item.save
       render json: media_item, status: 200
     else
-      render json: {errors: media_item.errors.full_messages}, status: :unprocessable_entity
+      errors = [];
+      media_item.errors.each do |key, value|
+        error = {property: key, message: value}
+        errors.push(error)
+      end
+      render json: errors, status: :unprocessable_entity
     end
   end
   
