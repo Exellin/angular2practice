@@ -1,37 +1,46 @@
 import { Component, Inject } from '@angular/core';
-import { Validators, FormBuilder } from '@angular/forms';
-import { Router } from '@angular/router';
-import templateString from './media-item-form.component.html';
-import './media-item-form.component.scss';
+import { FormBuilder } from '@angular/forms';
+import { Router, ActivatedRoute, Params } from '@angular/router';
+import templateString from './media-item-edit.component.html';
 
 import { MediaItemService } from '../media-item/media-item.service';
 import { lookupListToken } from '../providers';
 
 @Component({
-  selector: 'media-item-form',
+  selector: 'media-item-edit',
   template: templateString
 })
 
-export class MediaItemFormComponent {
+export class MediaItemEditComponent {
   form;
+  mediaItem;
+  id;
 
   constructor(
     private formBuilder: FormBuilder,
     private mediaItemService: MediaItemService,
     @Inject(lookupListToken) public lookupLists,
-    private router: Router) {}
+    private router: Router,
+    private route: ActivatedRoute
+  ) {}
 
   ngOnInit() {
+    this.id = this.route.snapshot.params['id']
+
+    this.mediaItemService.get(this.id).subscribe(mediaItem => {
+      this.mediaItem = mediaItem;
+    });
+
     this.form = this.formBuilder.group({
-      medium: this.formBuilder.control('Movies'),
+      medium: this.formBuilder.control(''),
       name: this.formBuilder.control(''),
       category: this.formBuilder.control(''),
       year: this.formBuilder.control('')
     });
   }
 
-  onSubmit(mediaItem) {
-    this.mediaItemService.add(mediaItem)
+  onEditSubmit(mediaItem) {
+    this.mediaItemService.update(this.id, mediaItem)
      .subscribe(
        (res) => {
          this.router.navigate(['/', mediaItem.medium]);

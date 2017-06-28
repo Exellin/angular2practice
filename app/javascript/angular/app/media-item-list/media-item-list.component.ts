@@ -14,11 +14,11 @@ export class MediaItemListComponent {
   medium = '';
   mediaItems = [];
   paramsSubscription;
-  
+
   constructor(
     private mediaItemService: MediaItemService,
     private activatedRoute: ActivatedRoute) {}
-  
+
   ngOnInit() {
     this.paramsSubscription = this.activatedRoute.params
       .subscribe(params => {
@@ -29,23 +29,23 @@ export class MediaItemListComponent {
         this.getMediaItems(medium);
       });
   }
-  
+
   ngOnDestroy() {
     this.paramsSubscription.unsubscribe;
   }
-  
+
   onMediaItemDelete(mediaItem) {
     this.mediaItemService.delete(mediaItem)
       .subscribe(() => {
         this.getMediaItems(this.medium);
       });
   }
-  
+
   getMediaItems(medium) {
     this.medium = medium;
-    this.mediaItemService.get(medium)
+    this.mediaItemService.index(medium)
       .subscribe(mediaItems => {
         this.mediaItems = mediaItems;
-      })
+      });
   }
 }

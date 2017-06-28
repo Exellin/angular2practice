@@ -10,6 +10,7 @@ import { FavoriteDirective } from './media-item/favorite.directive';
 import { CategoryListPipe } from './media-item-list/category-list.pipe';
 import { MediaItemFormComponent } from './media-item-form/media-item-form.component';
 import { MediaItemService } from './media-item/media-item.service';
+import { MediaItemEditComponent } from './media-item-edit/media-item-edit.component';
 import { lookupListToken, lookupLists } from './providers';
 import { routing } from './app.routing'
 
@@ -20,7 +21,8 @@ import { routing } from './app.routing'
     MediaItemListComponent,
     FavoriteDirective,
     CategoryListPipe,
-    MediaItemFormComponent
+    MediaItemFormComponent,
+    MediaItemEditComponent
   ],
   imports: [
     BrowserModule,
