@@ -10,16 +10,12 @@ export class MediaItemService {
     let searchParams = new URLSearchParams();
     searchParams.append('medium', medium);
     return this.http.get('media_items', { search: searchParams })
-      .map(response => {
-        return response.json();
-      });
+      .map(response => response.json());
   }
 
   get(mediaItemId) {
     return this.http.get(`media_items/${mediaItemId}`, mediaItemId)
-      .map(response => {
-        return response.json();
-      })
+      .map(response => response.json());
   }
 
   add(mediaItem) {
@@ -28,7 +24,6 @@ export class MediaItemService {
   }
 
   update(id, mediaItem) {
-    console.log(mediaItem);
     return this.http.patch(`media_items/${id}`, mediaItem)
       .map(response => {});
   }

@@ -13,8 +13,6 @@ class MediaItemsController < ApplicationController
     media_item = MediaItem.find(params[:id])
     if media_item
       render json: media_item, status: :ok
-    else
-      render json: { error: error.message }, status: :not_found
     end
   end
 
@@ -23,11 +21,7 @@ class MediaItemsController < ApplicationController
     if media_item.save
       render json: media_item, status: :ok
     else
-      errors = [];
-      media_item.errors.each do |key, value|
-        error = {property: key, message: value}
-        errors.push(error)
-      end
+      errors = list_errors(media_item)
       render json: errors, status: :unprocessable_entity
     end
   end
@@ -37,11 +31,7 @@ class MediaItemsController < ApplicationController
     if media_item.update(media_item_params)
       render json: media_item, status: :ok
     else
-      errors = [];
-      media_item.errors.each do |key, value|
-        error = {property: key, message: value}
-        errors.push(error)
-      end
+      errors = list_errors(media_item)
       render json: errors, status: :unprocessable_entity
     end
   end
@@ -55,5 +45,14 @@ class MediaItemsController < ApplicationController
 
   def media_item_params
     params.require(:media_item).permit(:name, :medium, :category, :year, :watchedOn, :isFavorite)
+  end
+
+  def list_errors(media_item)
+    errors = [];
+    media_item.errors.each do |key, value|
+      error = {property: key, message: value}
+      errors.push(error)
+    end
+    errors
   end
 end
